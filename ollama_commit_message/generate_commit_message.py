@@ -29,7 +29,7 @@ def get_staged_commit_message():
         return commit_message
     except FileNotFoundError:
         print("No staged commit message found.")
-        return None
+        return ""
     except Exception as e:
         print(f"Error reading commit message: {e}")
         raise e
@@ -65,8 +65,8 @@ def generate_commit_message(host: str, model: str):
             {"role": "user", "content": f"{user_commit_message}"},
         ],
     )
-    print(resp["message"]["content"])
-    write_commit_message(resp["message"]["content"])
+    msg = user_commit_message + " " + resp["message"]["content"]
+    write_commit_message(msg)
 
 
 def main():
