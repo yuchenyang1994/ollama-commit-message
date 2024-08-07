@@ -66,6 +66,7 @@ def generate_commit_message(host: str, model: str):
         ],
     )
     print(resp["message"]["content"])
+    write_commit_message(resp["message"]["content"])
 
 
 def main():
