@@ -35,4 +35,4 @@ repos:
 pre-commit install --hook-type commit-msg
 ```
 
-Okay, AI will help you complete your message with every submission.
+Okay, AI will help you complete your message with every commit.
