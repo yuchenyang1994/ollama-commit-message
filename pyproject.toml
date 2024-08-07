@@ -2,12 +2,15 @@
 name = "ollama-commit-message"
 version = "0.1.0"
 description = ""
-authors = ["chenyyu <chenyyu@paypal.com>"]
+authors = ["yuchenyang1994 <yuchenyang1994@foxmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.11"
+ollama = "^0.3.1"
 
+[tool.poetry.scripts]
+ollama-commit-message = "ollama_commit_message.generate_commit_message:main"
 
 [build-system]
 requires = ["poetry-core"]
