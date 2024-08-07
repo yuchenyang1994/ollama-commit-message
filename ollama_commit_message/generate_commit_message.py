@@ -68,7 +68,7 @@ def generate_commit_message(host: str, model: str):
             {"role": "user", "content": f"{user_commit_message}"},
         ],
     )
-    print("msg!!!", user_commit_message)
+    user_commit_message = user_commit_message.strip()
     msg = user_commit_message + " " + resp["message"]["content"].strip()
     write_commit_message(msg)
 
