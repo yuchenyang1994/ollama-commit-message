@@ -1,7 +1,7 @@
 - id: ollama-commit-message
   name: ollama-commit-message
   description: use ollama generate commit message
-  entry: generate-commit-message
+  entry: ollama-commit-message
   stages: [commit-msg]
   language: python
   args: ["-m", "gemma2:2b-instruct-q8_0"]

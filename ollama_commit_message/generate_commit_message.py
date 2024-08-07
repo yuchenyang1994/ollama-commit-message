@@ -56,7 +56,7 @@ def generate_commit_message(host: str, model: str):
     prompt = f"""
     You are a good git commit message writer! commit messages based on the following diff:
     {diff_file}
-    Don't modify the user's commit message, just continue writing.
+    User input is a Git commit message. Don't modify the user's commit message, just continue writing.
     """
     resp = client.chat(
         model=model,
@@ -77,11 +77,12 @@ def main():
     )
     parser.add_argument(
         "--host",
-        "-h",
         type=str,
         default="http://localhost:11434",
         help="ollama host address",
     )
+
+    parser.add_argument("filenames", nargs="*")
 
     args = parser.parse_args()
 
