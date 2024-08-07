@@ -58,7 +58,8 @@ def generate_commit_message(host: str, model: str):
 
     {diff_file}
 
-    You need to write a git commit message based on the diff file.  Just summarize the changes being made, and don't include anything else.
+    You need to write a git commit message based on the diff file.
+    Output only the Git commit message. Do not output any other content.
     """
     resp = client.chat(
         model=model,
