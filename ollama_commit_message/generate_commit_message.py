@@ -55,8 +55,10 @@ def generate_commit_message(host: str, model: str):
     user_commit_message = get_staged_commit_message()
     prompt = f"""
     You are a good git commit message writer! commit messages based on the following diff:
+
     {diff_file}
-    User input is a Git commit message. Don't modify the user's commit message, just continue writing.
+
+    You need to write a git commit message based on the diff file.  Just summarize the changes being made, and don't include anything else.
     """
     resp = client.chat(
         model=model,
@@ -65,6 +67,7 @@ def generate_commit_message(host: str, model: str):
             {"role": "user", "content": f"{user_commit_message}"},
         ],
     )
+    print("msg!!!", user_commit_message)
     msg = user_commit_message + " " + resp["message"]["content"]
     write_commit_message(msg)
 
