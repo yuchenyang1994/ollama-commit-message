@@ -4,4 +4,5 @@
   entry: generate-commit-message
   stages: [commit-msg]
   language: python
+  args: ["-m", "gemma2:2b-instruct-q8_0"]
   types: [text]
