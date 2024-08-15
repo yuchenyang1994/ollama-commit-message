@@ -58,6 +58,7 @@ def generate_commit_message(host: str, model: str):
 
     {diff_file}
 
+    The user's short prompt for this submission serves as a guide to compose the commit message.
     You need to write a git commit message based on the diff file.
     Output only the Git commit message. Do not output any other content.
     """
