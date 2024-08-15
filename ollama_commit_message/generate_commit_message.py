@@ -7,7 +7,16 @@ import argparse
 def get_staged_diff() -> str:
     try:
         result = subprocess.run(
-            ["git", "diff", "--cached", "--no-color", "--text", "--diff-filter=AMCR"],
+            [
+                "git",
+                "diff",
+                "--cached",
+                "--no-color",
+                "--text",
+                "--unified",
+                "80",
+                "--diff-filter=AMCR",
+            ],
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             text=True,
