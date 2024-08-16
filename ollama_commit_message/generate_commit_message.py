@@ -78,7 +78,11 @@ def generate_commit_message(host: str, model: str):
         ],
     )
     user_commit_message = user_commit_message.strip()
-    msg = user_commit_message + " " + resp["message"]["content"].strip()
+    msg = ""
+    if user_commit_message.startswith("[skip ci]"):
+        msg = user_commit_message + " " + resp["message"]["content"].strip()
+    else:
+        msg = resp["message"]["content"].strip()
     print(f"generate commit message: {msg}")
     write_commit_message(msg)
 
